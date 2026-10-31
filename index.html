@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="zh-CN" data-energy="aurora">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="一个为 GitHub 演示准备的动态 AI 实验室网页，纯 HTML、CSS 和 JavaScript 构建。"
+    />
+    <meta name="theme-color" content="#050816" />
+    <title>NOVA LAB｜AI 创作实验室</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='28' fill='%23050611' stroke='%2353f6ff' stroke-width='4'/%3E%3Ccircle cx='32' cy='32' r='10' fill='%23ff4fa3'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+    <canvas id="starfield" aria-hidden="true"></canvas>
+    <div class="grid-plane" aria-hidden="true"></div>
+    <div class="cursor-aura" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="NOVA LAB 首页">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>NOVA / LAB</span>
+      </a>
+
+      <div class="system-state" aria-label="系统状态">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span>创作引擎在线</span>
+        <time id="local-time">00:00:00</time>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="scene-index">实验记录 / 2026.10</p>
+          <h1 class="hero-title" id="hero-title">
+            <span>把想法</span>
+            <span>变成可运行的光</span>
+          </h1>
+          <p class="hero-intro">
+            这里没有静止的灵感。每一次点击、移动和输入，都会让数字世界产生新的回声。
+          </p>
+
+          <div class="hero-actions">
+            <a class="primary-action magnetic" href="#experiment">
+              <span>启动实验</span>
+              <span class="action-spark" aria-hidden="true">✦</span>
+            </a>
+            <a class="text-action" href="#terminal">查看运行轨迹</a>
+          </div>
+        </div>
+
+        <div class="reactor-wrap" aria-label="交互式 AI 能量核心">
+          <div class="reactor-stage" id="reactor-stage">
+            <div class="orbit orbit-one" aria-hidden="true"></div>
+            <div class="orbit orbit-two" aria-hidden="true"></div>
+            <div class="orbit orbit-three" aria-hidden="true"></div>
+            <button class="energy-core" id="energy-core" type="button" aria-label="释放一次能量脉冲">
+              <span class="core-shell"></span>
+              <span class="core-glow"></span>
+              <span class="core-center"></span>
+            </button>
+            <span class="node-label node-git">Git / 版本</span>
+            <span class="node-label node-ai">AI / 推演</span>
+            <span class="node-web">Web / 发布</span>
+            <div class="scan-line" aria-hidden="true"></div>
+          </div>
+          <p class="reactor-hint">移动鼠标，观察能量场变化</p>
+        </div>
+
+        <div class="scroll-cue" aria-hidden="true">
+          <span>继续探索</span>
+          <i></i>
+        </div>
+      </section>
+
+      <section class="signal-rail" aria-label="实时实验数据">
+        <div class="signal-item">
+          <strong data-count="128">0</strong>
+          <span>灵感节点</span>
+        </div>
+        <div class="signal-divider" aria-hidden="true"></div>
+        <div class="signal-item">
+          <strong data-count="97">0</strong><b>%</b>
+          <span>能量同步</span>
+        </div>
+        <div class="signal-divider" aria-hidden="true"></div>
+        <div class="signal-item">
+          <strong data-count="24">0</strong><b>h</b>
+          <span>持续运行</span>
+        </div>
+        <p class="signal-note">所有数据均为本页交互演示</p>
+      </section>
+
+      <section class="experiment" id="experiment" aria-labelledby="experiment-title">
+        <div class="experiment-copy">
+          <p class="section-coordinate">坐标 31.2304° N / 121.4737° E</p>
+          <h2 id="experiment-title">选择一种能量，重写页面气质。</h2>
+          <p>
+            点击不同模式，颜色、光晕和运行日志会同步变化。这是一段完全运行在浏览器里的交互，不需要后端，也没有外部依赖。
+          </p>
+
+          <div class="mode-switcher" role="group" aria-label="能量模式">
+            <button class="mode-button is-active" type="button" data-mode="aurora" aria-pressed="true">
+              <span class="mode-swatch swatch-aurora" aria-hidden="true"></span>
+              极光
+            </button>
+            <button class="mode-button" type="button" data-mode="pulse" aria-pressed="false">
+              <span class="mode-swatch swatch-pulse" aria-hidden="true"></span>
+              脉冲
+            </button>
+            <button class="mode-button" type="button" data-mode="eclipse" aria-pressed="false">
+              <span class="mode-swatch swatch-eclipse" aria-hidden="true"></span>
+              日蚀
+            </button>
+          </div>
+        </div>
+
+        <div class="terminal" id="terminal" aria-label="实时运行日志">
+          <div class="terminal-bar">
+            <div class="terminal-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+            <span>nova-core / live-session</span>
+            <span class="terminal-signal">LIVE</span>
+          </div>
+          <div class="terminal-body">
+            <p><span class="prompt">➜</span> <span class="command">git clone imagination://nova-lab</span></p>
+            <p class="terminal-response">正在连接创作核心...</p>
+            <div id="terminal-output" class="terminal-output" aria-live="polite"></div>
+            <p class="terminal-cursor-line"><span class="prompt">➜</span> <span class="terminal-cursor"></span></p>
+          </div>
+          <div class="terminal-grid" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <section class="process" aria-labelledby="process-title">
+        <div class="process-heading">
+          <p>一条可见的创作路径</p>
+          <h2 id="process-title">从一句话，到一个能被世界打开的作品。</h2>
+        </div>
+
+        <ol class="process-line">
+          <li>
+            <span class="step-number">01</span>
+            <div>
+              <h3>输入想法</h3>
+              <p>从模糊念头开始，让问题拥有清晰的轮廓。</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-number">02</span>
+            <div>
+              <h3>与 AI 共创</h3>
+              <p>拆解、生成、验证，在每一次反馈中继续进化。</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-number">03</span>
+            <div>
+              <h3>发布到世界</h3>
+              <p>让代码离开本地，成为任何人都能访问的链接。</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="idea-reactor" aria-labelledby="idea-title">
+        <div class="idea-orbit" aria-hidden="true"></div>
+        <p class="idea-label">交互彩蛋</p>
+        <h2 id="idea-title">生成你的下一次灵感坐标</h2>
+        <p id="idea-output" class="idea-output">一座会回应情绪的数字花园</p>
+        <button class="generate-button magnetic" id="generate-idea" type="button">
+          <span>重新生成</span>
+          <span aria-hidden="true">↻</span>
+        </button>
+      </section>
+    </main>
+
+    <footer>
+      <p>NOVA LAB — 为每一个尚未成形的想法供能。</p>
+      <a href="#top">返回顶部</a>
+    </footer>
+  </body>
+</html>
